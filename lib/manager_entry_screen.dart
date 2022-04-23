@@ -126,6 +126,7 @@ class _ManagerScreenState extends State<AddManagerScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () {
+                      addData();
                       Navigator.pop(context);
                       Navigator.push(context,
                           MaterialPageRoute(builder: (_) => ShowManager()));
@@ -137,6 +138,10 @@ class _ManagerScreenState extends State<AddManagerScreen> {
         ),
       ),
     );
+  }
+
+  void addData() {
+    print("$name , $email , $services");
   }
 
   DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(

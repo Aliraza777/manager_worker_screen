@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:manager_worker_screen/manager_entry_screen.dart';
 
+import 'widgets/scrollableWidget.dart';
+
 class ShowManager extends StatelessWidget {
   ShowManager({Key? key}) : super(key: key);
 
@@ -8,19 +10,73 @@ class ShowManager extends StatelessWidget {
     {
       'Name': 'Zia Ur Rehman',
       'Services': 'Drainage, Cleaning',
-      'Phone': 03419797976,
+      'Phone': 419797976,
       'Action': 'Update/Delete'
     },
     {
       'Name': 'Muhammad Ali Raza',
       'Services': 'Plumer, Electrician',
-      'Phone': 03418383882,
+      'Phone': 418383882,
       'Action': 'Update/Delete'
     },
     {
       'Name': 'Saad Khan',
       'Services': 'Security Check, Camera System',
-      'Phone': 03047188182,
+      'Phone': 047188182,
+      'Action': 'Update/Delete'
+    },
+    {
+      'Name': 'Saad Khan',
+      'Services': 'Security Check, Camera System',
+      'Phone': 047188182,
+      'Action': 'Update/Delete'
+    },
+    {
+      'Name': 'Saad Khan',
+      'Services': 'Security Check, Camera System',
+      'Phone': 047188182,
+      'Action': 'Update/Delete'
+    },
+    {
+      'Name': 'Saad Khan',
+      'Services': 'Security Check, Camera System',
+      'Phone': 047188182,
+      'Action': 'Update/Delete'
+    },
+    {
+      'Name': 'Saad Khan',
+      'Services': 'Security Check, Camera System',
+      'Phone': 047188182,
+      'Action': 'Update/Delete'
+    },
+    {
+      'Name': 'Saad Khan',
+      'Services': 'Security Check, Camera System',
+      'Phone': 047188182,
+      'Action': 'Update/Delete'
+    },
+    {
+      'Name': 'Saad Khan',
+      'Services': 'Security Check, Camera System',
+      'Phone': 047188182,
+      'Action': 'Update/Delete'
+    },
+    {
+      'Name': 'Saad Khan',
+      'Services': 'Security Check, Camera System',
+      'Phone': 047188182,
+      'Action': 'Update/Delete'
+    },
+    {
+      'Name': 'Saad Khan',
+      'Services': 'Security Check, Camera System',
+      'Phone': 047188182,
+      'Action': 'Update/Delete'
+    },
+    {
+      'Name': 'Saad Khan',
+      'Services': 'Security Check, Camera System',
+      'Phone': 047188182,
       'Action': 'Update/Delete'
     },
   ];
@@ -34,16 +90,16 @@ class ShowManager extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: ElevatedButton.icon(
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton.icon(
                     style: TextButton.styleFrom(
-                      padding: EdgeInsets.all(16.0),
+                      padding: EdgeInsets.only(left: 16.0, right: 16.0),
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -54,68 +110,20 @@ class ShowManager extends StatelessWidget {
                     icon: Icon(Icons.add),
                     label: Text("Add Manager"),
                   ),
-                ),
-              ],
-            ),
-            _createDataTable()
-            // Table(
-            //   border: TableBorder.all(),
-            //   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-            //   children: [
-            //     TableRow(
-            //       children: <Widget>[
-            //         Container(
-            //           height: 32,
-            //           color: Colors.green,
-            //         ),
-            //         TableCell(
-            //           verticalAlignment: TableCellVerticalAlignment.top,
-            //           child: Container(
-            //             height: 32,
-            //             width: 32,
-            //             color: Colors.red,
-            //           ),
-            //         ),
-            //         Container(
-            //           height: 64,
-            //           color: Colors.blue,
-            //         ),
-            //       ],
-            //     ),
-            //     TableRow(
-            //       decoration: const BoxDecoration(
-            //         color: Colors.grey,
-            //       ),
-            //       children: <Widget>[
-            //         Container(
-            //           height: 64,
-            //           width: 128,
-            //           color: Colors.purple,
-            //         ),
-            //         Container(
-            //           height: 32,
-            //           color: Colors.yellow,
-            //         ),
-            //         Center(
-            //           child: Container(
-            //             height: 32,
-            //             width: 32,
-            //             color: Colors.orange,
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ],
-            // ),
-          ],
+                ],
+              ),
+              ScrollableWidget(child: _createDataTable()),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  DataTable _createDataTable() {
-    return DataTable(
-        showBottomBorder: true, columns: _createColumns(), rows: _createRows());
+  Widget _createDataTable() {
+    return SingleChildScrollView(
+      child: DataTable(columns: _createColumns(), rows: _createRows()),
+    );
   }
 
   List<DataColumn> _createColumns() {
@@ -132,7 +140,7 @@ class ShowManager extends StatelessWidget {
         .map((manager) => DataRow(cells: [
               DataCell(Text(manager['Name'])),
               DataCell(Text(manager['Services'])),
-              DataCell(Text('+' + manager['Phone'].toString())),
+              DataCell(Text('+92' + manager['Phone'].toString())),
               DataCell(Text(manager['Action'])),
             ]))
         .toList();
