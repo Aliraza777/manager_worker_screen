@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manager_worker_screen/widgets/scrollableWidget.dart';
 
 import 'service_add_screen.dart';
 
@@ -47,16 +48,16 @@ class ShowServices extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: ElevatedButton.icon(
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton.icon(
                     style: TextButton.styleFrom(
-                      padding: EdgeInsets.all(16.0),
+                      padding: EdgeInsets.only(left: 16.0, right: 16.0),
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -67,11 +68,11 @@ class ShowServices extends StatelessWidget {
                     icon: Icon(Icons.add),
                     label: Text("Add New Service"),
                   ),
-                ),
-              ],
-            ),
-            _createDataTable()
-          ],
+                ],
+              ),
+              ScrollableWidget(child: _createDataTable())
+            ],
+          ),
         ),
       ),
     );
